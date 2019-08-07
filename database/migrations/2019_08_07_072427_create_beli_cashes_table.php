@@ -15,9 +15,9 @@ class CreateBeliCashesTable extends Migration
     {
         Schema::create('beli_cashes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('cash_kode');
+            $table->Integer('cash_kode');
             $table->Integer('pembeli_no_ktp');
-            $table->String('motor_kode');
+            $table->Integer('motor_kode');
             $table->Date('cash_tanggal');
             $table->Double('cash_bayar');
             $table->timestamps();

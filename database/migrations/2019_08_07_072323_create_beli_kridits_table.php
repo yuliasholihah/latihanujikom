@@ -15,9 +15,10 @@ class CreateBeliKriditsTable extends Migration
     {
         Schema::create('beli_kridits', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('kridit_kode');
-            $table->String('paket_kode');
-            $table->String('motor_kode');
+            $table->Integer('kridit_kode');
+            $table->Integer('pembeli_no_ktp');
+            $table->Integer('paket_kode');
+            $table->Integer('motor_kode');
             $table->Date('kridit_tanggal');
             $table->String('fotkopi_ktp');
             $table->String('fotokopi_kk');

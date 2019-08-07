@@ -15,12 +15,12 @@ class CreateMotorsTable extends Migration
     {
         Schema::create('motors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('motor_kode');
+            $table->Integer('motor_kode');
             $table->String('motor_merk');
             $table->String('motor_type');
             $table->String('motor_warna_pilihan');
-            $table->Integer('motor_harga');
-            $table->String('motor_gambar');
+            $table->Double('motor_harga');
+            $table->Longblob('motor_gambar');
             $table->timestamps();
         });
     }
