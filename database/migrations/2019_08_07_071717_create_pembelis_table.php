@@ -18,8 +18,8 @@ class CreatePembelisTable extends Migration
             $table->Integer('pembeli_no_ktp');
             $table->String('pembeli_nama');
             $table->String('pembeli_alamat');
-            $table->Numeric('pembeli_telpon');
-            $table->Numeric('pembeli_hp');
+            $table->Integer('pembeli_telpon');
+            $table->Integer('pembeli_hp');
             $table->timestamps();
         });
     }

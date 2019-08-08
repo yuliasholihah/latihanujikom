@@ -18,7 +18,7 @@ class CreateKriditPaketsTable extends Migration
             $table->Integer('paket_kode');
             $table->Double('paket_harga_cash');
             $table->Double('paket_uang_muka');
-            $table->Numeric('paket_jumlah_cicilan');
+            $table->Integer('paket_jumlah_cicilan');
             $table->Double('paket_bunga');
             $table->Double('paket_nilai_cicilan');
             $table->timestamps();
