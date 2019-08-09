@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Role;
+use Hash;
 use Illuminate\Http\Request;
+
 
 class UserController extends Controller
 {
@@ -14,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +38,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        $role = Role::where('name','pembeli')->first();
+        $user->attachRole($role);
+
+        return response()->json('berhasil');
     }
 
     /**
