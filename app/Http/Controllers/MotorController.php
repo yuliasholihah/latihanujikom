@@ -70,7 +70,8 @@ class MotorController extends Controller
      */
     public function show($id)
     {
-        //
+        $motor = Motor::findOrFail($id);
+        return view('motor.show', compact('motor'));
     }
 
     /**

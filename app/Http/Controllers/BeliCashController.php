@@ -45,7 +45,8 @@ class BeliCashController extends Controller
      */
     public function show($id)
     {
-        //
+        $belicash = BeliCash::findOrFail($id);
+        return view('belicash.show', compact('belicash'));
     }
 
     /**

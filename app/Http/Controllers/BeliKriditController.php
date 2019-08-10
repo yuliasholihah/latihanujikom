@@ -45,7 +45,8 @@ class BeliKriditController extends Controller
      */
     public function show($id)
     {
-        //
+        $belikridit = BeliKridit::findOrFail($id);
+        return view('backend.belikridit.show', compact('belikridit'));
     }
 
     /**

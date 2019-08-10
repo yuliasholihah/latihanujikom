@@ -23,7 +23,8 @@ class BayarCicilanController extends Controller
      */
     public function create()
     {
-        //
+        $bayarcicilan = BayarCicilan::findOrFail($id);
+        return view('bayarcicilan.show', compact('bayarcicilan'));
     }
 
     /**

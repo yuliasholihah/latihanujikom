@@ -45,7 +45,8 @@ class KriditPaketController extends Controller
      */
     public function show($id)
     {
-        //
+        $kriditpaket = KriditPaket::findOrFail($id);
+        return view('kriditpaket.show', compact('kriditpaket'));
     }
 
     /**

@@ -60,7 +60,8 @@ class PembeliController extends Controller
      */
     public function show($id)
     {
-        //
+        $pembeli = Pembeli::findOrFail($id);
+        return view('pembeli.show', compact('pembeli'));
     }
 
     /**
