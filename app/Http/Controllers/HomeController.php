@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Laratrust\LaratrushFacade as Laratrush;
 
 class HomeController extends Controller
 {
