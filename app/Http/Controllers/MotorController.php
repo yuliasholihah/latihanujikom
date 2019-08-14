@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Motor;
+use Session;
 
 class MotorController extends Controller
 {
@@ -24,7 +26,7 @@ class MotorController extends Controller
      */
     public function create()
     {
-        return view ('kategori.create');
+        return view ('motor.create');
     }
 
     /**
@@ -44,7 +46,7 @@ class MotorController extends Controller
         //foto
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
-            $path = public_path() .'/assets/img/artikel';
+            $path = public_path() .'/assets/img/motor';
             $filename = str_random(6) . '_'
             . $file->getClientOriginalName();
             $upload = $file->move(

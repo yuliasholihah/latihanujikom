@@ -26,6 +26,12 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+                <a class="navbar-brand" href="{{ url('/backend/motor') }}">
+                    Motor
+                </a>
+                <a class="navbar-brand" href="{{ url('/backend/pembeli') }}">
+                    Pembeli
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -33,9 +39,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
                     </ul>
-
+                   
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -68,6 +73,26 @@
                             </li>
                         @endguest
                     </ul>
+                    @role('admin')
+                     <li class="nav-item">
+                       <a class="nav-link" href="/">Menu Admin</a>
+                       </li>
+                       <li class="nav-item">
+                       <a class="nav-link" href="/admin/kategori">Menu Admin</a>
+                       </li>
+                       @endrole
+
+                       @guest
+                       {{-- --}}
+                       @else
+                       <li class="nav-item">
+                       <a class="nav-link" href="">Menu</a>
+                       </li>
+                       <li class="nav-item">
+                       <a class="nav-link" href="">Menu</a>
+                       </li>
+                       @endguest
+                       </ul>
                 </div>
             </div>
         </nav>

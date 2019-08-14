@@ -42,6 +42,7 @@ class PembeliController extends Controller
         $pembeli->pembeli_nama = $request->pembeli_nama;
         $pembeli->pembeli_alamat = $request->pembeli_alamat;
         $pembeli->pembeli_telpon = $request->pembeli_telpon;
+        $pembeli->pembeli_hp = $request->pembeli_hp;
 
         $pembeli->save();
         Session::flash("flash_notification",[

@@ -15,7 +15,7 @@ class CreateBeliCashesTable extends Migration
     {
         Schema::create('beli_cashes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->Integer('cash_kode');
+            $table->String('cash_kode');
             $table->bigInteger('pembeli_no_ktp')->unsigned();
             $table->foreign('pembeli_no_ktp')->references('id')->on('beli_cashes');
             $table->bigInteger('motor_kode')->unsigned();
