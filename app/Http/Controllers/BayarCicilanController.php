@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\BayarCicilan;
+use App\Pembeli;
 
 class BayarCicilanController extends Controller
 {
@@ -13,7 +15,8 @@ class BayarCicilanController extends Controller
      */
     public function index()
     {
-        //
+        $bayarcicilan = BayarCicilan::orderBy('created_at','desc')->get();
+        return view('bayar cicilan.index', compact('bayarcicilan'));
     }
 
     /**

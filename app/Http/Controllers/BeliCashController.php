@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\BeliCash;
 
 class BeliCashController extends Controller
 {
@@ -13,7 +14,8 @@ class BeliCashController extends Controller
      */
     public function index()
     {
-        //
+        $belicash = BeliCash::orderBy('created_at','desc')->get();
+        return view('beli cash.index', compact('belicash'));
     }
 
     /**

@@ -6,20 +6,18 @@
             <div class="col-12">
                 <div class="card">
                         <center>
-                                <div class="card-header">Edit Data Motor</div>
+                                <div class="card-header">Tambah Kridit Paket</div>
                             </center>
             
                             <div class="card-body">
-                                <form action="{{route('motor.update', $motor->id)}}" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" name="_method" value="PATCH">
+                                <form action="{{route('kridit paket.store')}}" method="post" enctype="multipart/form-data">
                                     {{csrf_field()}}
                                     <div class="form-group">
-                                    <div class="form-group">
-                                        <label for="">motor kode</label>
+                                        <label for=""> kode</label>
                                         <input class="form-control 
-                                        @error('motor_kode') is-invalid @enderror" type="text" 
-                                        name="motor_kode" id=""value="{{$motor->motor_kode}}" required>
-                                        @error('motor_kode')
+                                        @error('paket_kode') is-invalid @enderror" type="text" 
+                                        name="paket_kode" id="" required>
+                                        @error('paket_kode')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{$message}}</strong>
                                         </span>
@@ -27,76 +25,72 @@
                                     </div>
                                    
                                     <div class="form-group">
-                                        <label for="">merk</label>
+                                        <label for="">harga cash</label>
                                         <input class="form-control 
-                                        @error('motor_merk') is-invalid @enderror" type="text" 
-                                        name="motor_merk" id=""value="{{$motor->motor_merk}}"  required>
-                                        @error('motor_merk')
+                                        @error('paket_harga_cash') is-invalid @enderror" type="text" 
+                                        name="paket_harga_cash" id="" required>
+                                        @error('paket_harga_cash')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{$message}}</strong>
                                         </span>
                                         @enderror
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="">type</label>
-                                        <input class="form-control 
-                                        @error('motor_type') is-invalid @enderror" type="text" 
-                                        name="motor_type" id=""value="{{$motor->motor_type}}" required>
-                                        @error('motor_type')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{$message}}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-
-                                     <div class="form-group">
-                                        <label for="">warna</label>
-                                        <input class="form-control 
-                                        @error('motor_warna_pilihan') is-invalid @enderror" type="text" 
-                                        name="motor_warna_pilihan" id="" value="{{$motor->motor_warna_pilihan}}"required>
-                                        @error('motor_warna_pilihan')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{$message}}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-
-                                     <div class="form-group">
-                                        <label for="">harga</label>
-                                        <input class="form-control 
-                                        @error('motor_harga') is-invalid @enderror" type="text" 
-                                        name="motor_harga" id="" value="{{$motor->motor_harga}}"required>
-                                        @error('motor_harga')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{$message}}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Foto</label>
-                                        @if (isset($motor) && $motor->foto)
-                                            <p>
-                                                <img src="{{ asset('assets/img/motor/' 
-                                                .$motor->foto.'') }}"
-                                                style="margin-top:15px;margin-bottom:15px;
-                                                max-height:100px;border:1px;border-color:black;" alt="">
-                                            </p>
-                                        @endif
-                                        <input class="form-control 
-                                        @error('foto') is-invalid @enderror" type="file" 
-                                        name="foto" id="" value="{{$motor->foto}}">
-                                        @error('foto')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{$message}}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
                                     
-                                        </div>
+                                     <div class="form-group">
+                                        <label for="">uang muka</label>
+                                        <input class="form-control 
+                                        @error('paket_uang_muka') is-invalid @enderror" type="text" 
+                                        name="paket_uang_muka" id="" required>
+                                        @error('paket_uang_muka')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+
+                                     <div class="form-group">
+                                        <label for="">jumlah cicilan</label>
+                                        <input class="form-control 
+                                        @error('paket_jumlah_cicilan') is-invalid @enderror" type="text" 
+                                        name="paket_jumlah_cicilan" id="" required>
+                                        @error('paket_jumlah_cicilan')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+
+                                     <div class="form-group">
+                                        <label for="">bunga</label>
+                                        <input class="form-control 
+                                        @error('paket_bunga') is-invalid @enderror" type="text" 
+                                        name="paket_bunga" id="" required>
+                                        @error('paket_bunga')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+
+                                     <div class="form-group">
+                                        <label for="">nilai cicilan</label>
+                                        <input class="form-control 
+                                        @error('paket_nilai_cicilan') is-invalid @enderror" type="text" 
+                                        name="paket_nilai_cicilan" id="" required>
+                                        @error('paket_nilai_cicilan')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+
+                                    
+                    
+            
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-outline-info btn-rounded btn-block">
-                                            Edit Data
+                                            Simpan Data
                                         </button>
                                     </div>
                                 </form>
@@ -105,4 +99,3 @@
                     </div>
                 </div>
             </section>
-@endsection

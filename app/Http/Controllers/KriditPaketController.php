@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\KriditPaket;
+use Session;
 
 class KriditPaketController extends Controller
 {
@@ -13,7 +15,9 @@ class KriditPaketController extends Controller
      */
     public function index()
     {
-        //
+        
+        $kriditpaket = KriditPaket::orderBy('created_at','desc')->get();
+        return view('kridit paket.index', compact('kriditpaket'));
     }
 
     /**
@@ -23,7 +27,7 @@ class KriditPaketController extends Controller
      */
     public function create()
     {
-        //
+        return view ('kridit paket.create');
     }
 
     /**
@@ -34,7 +38,21 @@ class KriditPaketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kriditpaket = new KriditPaket();
+        $kriditpaket->paket_kode = $request->paket_kode;
+        $kriditpaket->paket_harga_cash = $request->paket_harga_cash;
+        $kriditpaket->paket_uang_muka = $request->paket_uang_muka;
+        $kriditpaket->paket_jumlah_cicilan = $request->paket_jumlah_cicilan;
+        $kriditpaket->paket_bunga = $request->paket_bunga;
+        $kriditpaket->paket_nilai_cicilan = $request->paket_nilai_cicilan;
+
+        $kriditpaket->save();
+        Session::flash("flash_notification",[
+            "level" => "success",
+            "message" => "Berhasil menyimpan<b>"
+                         . $kriditpaket->paket_kode."</b>"
+        ]);
+        return redirect()->route('kridit paket.index');
     }
 
     /**
@@ -46,7 +64,7 @@ class KriditPaketController extends Controller
     public function show($id)
     {
         $kriditpaket = KriditPaket::findOrFail($id);
-        return view('kriditpaket.show', compact('kriditpaket'));
+        return view('kridit paket.show', compact('kriditpaket'));
     }
 
     /**

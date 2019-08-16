@@ -32,6 +32,18 @@
                 <a class="navbar-brand" href="{{ url('/backend/pembeli') }}">
                     Pembeli
                 </a>
+                <a class="navbar-brand" href="{{ url('/backend/kridit paket') }}">
+                    Kridit Paket
+                </a>
+                <a class="navbar-brand" href="{{ url('/backend/beli kridit') }}">
+                    Beli Kridit 
+                </a>
+                <a class="navbar-brand" href="{{ url('/backend/bayar cicilan') }}">
+                    Bayar Cicilan 
+                </a>
+                <a class="navbar-brand" href="{{ url('/backend/beli cash') }}">
+                    Beli Cash
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -39,6 +51,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                    @role('admin')
+                     <li class="nav-item">
+                       <a class="nav-link" href="/">Menu Admin</a>
+                       </li>
+                       <li class="nav-item">
+                       <a class="nav-link" href="/admin/kategori">Menu Admin</a>
+                       </li>
+                       @endrole
+
+                       @guest
+                       {{-- --}}
+                       @else
+                       <li class="nav-item">
+                       <a class="nav-link" href="">Menu</a>
+                       </li>
+                       <li class="nav-item">
+                       <a class="nav-link" href="">Menu</a>
+                       </li>
+                       @endguest
+                       </ul>
                     </ul>
                    
                     <!-- Right Side Of Navbar -->
@@ -73,26 +105,7 @@
                             </li>
                         @endguest
                     </ul>
-                    @role('admin')
-                     <li class="nav-item">
-                       <a class="nav-link" href="/">Menu Admin</a>
-                       </li>
-                       <li class="nav-item">
-                       <a class="nav-link" href="/admin/kategori">Menu Admin</a>
-                       </li>
-                       @endrole
-
-                       @guest
-                       {{-- --}}
-                       @else
-                       <li class="nav-item">
-                       <a class="nav-link" href="">Menu</a>
-                       </li>
-                       <li class="nav-item">
-                       <a class="nav-link" href="">Menu</a>
-                       </li>
-                       @endguest
-                       </ul>
+                    
                 </div>
             </div>
         </nav>

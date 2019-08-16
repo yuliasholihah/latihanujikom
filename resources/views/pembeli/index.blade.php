@@ -43,7 +43,7 @@
                                     <a href="{{route('pembeli.show', $data->id)}}"
 										class="zmdi zmdi-eye btn btn-success btn-rounded btn-floating btn-outline"> Show
 									</a>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                       
 										<input type="hidden" name="_method" value="DELETE">
 										<button type="submit" class="zmdi zmdi-delete btn-rounded btn-floating btn btn-dangerbtn btn-danger btn-outline"> Delete</button>
 									</form>
@@ -52,8 +52,6 @@
                             @endforeach
                         </tbody>
                     </table>
-
-
                 </div>
             </div>
         </div>

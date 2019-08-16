@@ -82,9 +82,10 @@ class MotorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Motor $motor)
     {
-        $motor = Motor::findOrfail($id);
+        // $motor = Motor::find($id);
+        // dd($motor);
         return view('motor.edit',compact('motor'));
     }
 
@@ -97,7 +98,7 @@ class MotorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $motor = Motor::findOrfail($id);
+        $motor = Motor::findOrFail($id);
         $motor->motor_kode = $request->motor_kode;
         $motor->motor_merk = $request->motor_merk;
         $motor->motor_type = $request->motor_type;
@@ -132,13 +133,18 @@ class MotorController extends Controller
      */
     public function destroy($id)
     {
-        $motor = Motor::findOrfail($id);
-        if(!Motor::destroy($id)) return redirect()->back();
-        Session::flash("flash_notification",[
-            "level" => "Success",
-            "message" => "Berhasil menghapus<b>"
-                         . $motor->motor_type."</b>"
-        ]);
+        $motor = Motor::findOrFail($id);
+       if($motor->foto){
+           $old_foto = $motor->foto;
+           $filepath = public_path().'assets/img/motor/'.$motor->foto;
+           try{
+               File::delete($filepath);
+           } catch (FileNotFoundException $e){
+
+           }
+       }
+
+        $motor->delete();
         return redirect()->route('motor.index');
 
     }

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\BeliKridit;
+use App\Pembeli;
+use App\Motor;
 
 class BeliKriditController extends Controller
 {
@@ -12,8 +15,9 @@ class BeliKriditController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {    
+        $belikridit = BeliKridit::orderBy('created_at','desc')->get();
+        return view('beli kridit.index', compact('belikridit'));
     }
 
     /**
